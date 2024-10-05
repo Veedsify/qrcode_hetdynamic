@@ -6,6 +6,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Hash;
 
 class User extends Authenticatable
 {
@@ -20,6 +21,9 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'show_profile',
+        'username',
+        'role'
     ];
 
     /**
@@ -49,5 +53,77 @@ class User extends Authenticatable
     public function userAbout()
     {
         return $this->hasOne(UserAbout::class);
-    }   
+    }
+
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($user) {
+            $user->password = Hash::make('password');
+        });
+    }
+
+    // RelationShips
+
+    public function userServices()
+    {
+        return $this->hasMany(UserService::class);
+    }
+
+    public function userContacts()
+    {
+        return $this->hasMany(UserContact::class);
+    }
+
+    public function userResumeSkills()
+    {
+        return $this->hasMany(UserResumeSkill::class);
+    }
+
+    public function userResumeServices()
+    {
+        return $this->hasMany(UserResumeService::class);
+    }
+
+    public function userResumeExperiences()
+    {
+        return $this->hasMany(UserResumeExperience::class);
+    }
+
+    public function userResumeEducations()
+    {
+        return $this->hasMany(UserResumeEducation::class);
+    }
+
+    public function userResumeCertifications()
+    {
+        return $this->hasMany(UserResumeCertification::class);
+    }
+
+    public function userData()
+    {
+        return $this->hasOne(UserData::class);
+    }
+
+    public function userResume()
+    {
+        return $this->hasMany(UserResume::class);
+    }
+
+    public function userSocial()
+    {
+        return $this->hasMany(UserSocial::class);
+    }
+
+    public function userTestimonials()
+    {
+        return $this->hasMany(UserTestimonial::class);
+    }
+
+    public function userServiceCategory()
+    {
+        return $this->hasMany(UserServiceCategory::class);
+    }
 }

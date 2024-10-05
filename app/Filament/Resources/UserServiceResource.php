@@ -30,7 +30,7 @@ class UserServiceResource extends Resource
             ->schema([
                 Section::make('Service Details')->schema([
                     Select::make('user_id')->relationship('user', 'name')->native(false),
-                    Select::make('user_service_category_id')->label('Service Category')->relationship('service_category', 'service_category_name')->native(false),
+                    Select::make('user_service_category_id')->label('Service Category')->relationship('user_service_category', 'service_category_name')->native(false),
                     TextInput::make('service_name')->label('Service Name'),
                     FileUpload::make('service_cover')->label('Service Image')
                         ->image()
@@ -45,7 +45,10 @@ class UserServiceResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\ImageColumn::make('service_cover')->label('Service Image'),
+                Tables\Columns\TextColumn::make('service_name')->label('Service Name'),
+                Tables\Columns\TextColumn::make('user.name')->label('For User'),
+                Tables\Columns\TextColumn::make('user_service_category.service_category_name')->label('Service Category'),
             ])
             ->filters([
                 //

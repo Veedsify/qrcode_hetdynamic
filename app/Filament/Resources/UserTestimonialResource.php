@@ -6,6 +6,10 @@ use App\Filament\Resources\UserTestimonialResource\Pages;
 use App\Filament\Resources\UserTestimonialResource\RelationManagers;
 use App\Models\UserTestimonial;
 use Filament\Forms;
+use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Section;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -27,7 +31,13 @@ class UserTestimonialResource extends Resource
     {
         return $form
             ->schema([
-                //
+                Section::make('Testimonial Details')->schema([
+                    Select::make('user_id')->relationship('user', 'name')->native(false),
+                    TextInput::make('name'),
+                    TextInput::make('position'),
+                    TextInput::make('description'),
+                    FileUpload::make('image'),
+                ])
             ]);
     }
 
