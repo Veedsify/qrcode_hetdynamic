@@ -6,6 +6,9 @@ use App\Filament\Resources\UserServiceCategoryResource\Pages;
 use App\Filament\Resources\UserServiceCategoryResource\RelationManagers;
 use App\Models\UserServiceCategory;
 use Filament\Forms;
+use Filament\Forms\Components\Section;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -26,7 +29,10 @@ class UserServiceCategoryResource extends Resource
     {
         return $form
             ->schema([
-                //
+                Section::make('Category Details')->schema([
+                    Select::make('user_id')->relationship('user', 'name')->native(false),
+                    TextInput::make('service_category_name')->label('Category Name'),
+                ])
             ]);
     }
 
@@ -34,7 +40,8 @@ class UserServiceCategoryResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('service_category_name')->label('Category Name'),
+                Tables\Columns\TextColumn::make('user.name')->label('For User'),
             ])
             ->filters([
                 //

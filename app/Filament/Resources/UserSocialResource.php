@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Filament\Resources;
-
 use App\Filament\Resources\UserSocialResource\Pages;
 use App\Filament\Resources\UserSocialResource\RelationManagers;
 use App\Models\UserSocial;
@@ -16,17 +14,12 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-
 class UserSocialResource extends Resource
 {
     protected static ?string $model = UserSocial::class;
-
     protected static ?string $navigationIcon = 'heroicon-o-share';
-
     protected static ?string $navigationGroup = 'User';
     protected static ?string $navigationLabel = 'Socials';
-
-
     public static function form(Form $form): Form
     {
         return $form
@@ -38,7 +31,6 @@ class UserSocialResource extends Resource
                 ])
             ]);
     }
-
     public static function table(Table $table): Table
     {
         return $table
@@ -60,14 +52,12 @@ class UserSocialResource extends Resource
                 ]),
             ]);
     }
-
     public static function getRelations(): array
     {
         return [
             //
         ];
     }
-
     public static function getPages(): array
     {
         return [

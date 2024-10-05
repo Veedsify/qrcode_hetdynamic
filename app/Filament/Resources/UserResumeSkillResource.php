@@ -6,6 +6,9 @@ use App\Filament\Resources\UserResumeSkillResource\Pages;
 use App\Filament\Resources\UserResumeSkillResource\RelationManagers;
 use App\Models\UserResumeSkill;
 use Filament\Forms;
+use Filament\Forms\Components\Section;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -26,7 +29,11 @@ class UserResumeSkillResource extends Resource
     {
         return $form
             ->schema([
-                //
+                Section::make('Skill Details')->schema([
+                    Select::make('user_id')->relationship('user', 'name')->native(false),
+                    TextInput::make('skill_name'),
+                    TextInput::make('skill_level')->label('Skill Level (1-100)%'),
+                ])
             ]);
     }
 
@@ -34,7 +41,9 @@ class UserResumeSkillResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('skill_name'),
+                Tables\Columns\TextColumn::make('skill_level'),
+                Tables\Columns\TextColumn::make('user.name')->label('For User'),
             ])
             ->filters([
                 //

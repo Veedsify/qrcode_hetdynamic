@@ -14,4 +14,9 @@ class UserServiceCategory extends Model
         'user_id',
         'service_category_name',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

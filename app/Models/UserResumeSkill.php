@@ -15,4 +15,9 @@ class UserResumeSkill extends Model
         'skill_name',
         'skill_level',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

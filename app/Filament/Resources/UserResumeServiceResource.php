@@ -6,6 +6,10 @@ use App\Filament\Resources\UserResumeServiceResource\Pages;
 use App\Filament\Resources\UserResumeServiceResource\RelationManagers;
 use App\Models\UserResumeService;
 use Filament\Forms;
+use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Section;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -27,7 +31,13 @@ class UserResumeServiceResource extends Resource
     {
         return $form
             ->schema([
-                //
+                Section::make('Service Details')->schema([
+                    Select::make('user_id')->relationship('user', 'name')->native(false),
+                    FileUpload::make('icon'),
+                    TextInput::make('title'),
+                    TextInput::make('description'),
+                    TextInput::make('link'),
+                ])
             ]);
     }
 
