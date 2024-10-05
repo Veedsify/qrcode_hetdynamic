@@ -6,6 +6,11 @@ use App\Filament\Resources\UserResumeResource\Pages;
 use App\Filament\Resources\UserResumeResource\RelationManagers;
 use App\Models\UserResume;
 use Filament\Forms;
+use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\RichEditor;
+use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\Section;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -28,7 +33,11 @@ class UserResumeResource extends Resource
     {
         return $form
             ->schema([
-                //
+                Section::make('Resume Details')->schema([
+                    Select::make('user_id')->relationship('user', 'name')->native(false),
+                    RichEditor::make('resume_content')->label('Resume Intro'),
+                    FileUpload::make('resume_file_cv')->label('Resume File'),
+                ])
             ]);
     }
 

@@ -6,6 +6,10 @@ use App\Filament\Resources\UserContactResource\Pages;
 use App\Filament\Resources\UserContactResource\RelationManagers;
 use App\Models\UserContact;
 use Filament\Forms;
+use Filament\Forms\Components\Section;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -27,7 +31,12 @@ class UserContactResource extends Resource
     {
         return $form
             ->schema([
-                //
+                Section::make("Contact Requests")->schema([
+                    Select::make('user_id')->relationship('user', 'name')->native(false),
+                    TextInput::make('name'),
+                    TextInput::make('email_address'),
+                    Textarea::make('message')
+                ])
             ]);
     }
 
@@ -35,13 +44,16 @@ class UserContactResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('name'),
+                Tables\Columns\TextColumn::make('email_address'),
+                Tables\Columns\TextColumn::make('message'),
             ])
             ->filters([
                 //
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

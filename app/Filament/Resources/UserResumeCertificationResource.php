@@ -6,6 +6,9 @@ use App\Filament\Resources\UserResumeCertificationResource\Pages;
 use App\Filament\Resources\UserResumeCertificationResource\RelationManagers;
 use App\Models\UserResumeCertification;
 use Filament\Forms;
+use Filament\Forms\Components\Section;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -26,7 +29,13 @@ class UserResumeCertificationResource extends Resource
     {
         return $form
             ->schema([
-                //
+                Section::make('Certification Details')->schema([
+                    Select::make('user_id')->relationship('user', 'name')->native(false),
+                    TextInput::make('certification_name'),
+                    TextInput::make('receive_date'),
+                    TextInput::make('description'),
+                    TextInput::make('link'),
+                ])
             ]);
     }
 
@@ -34,13 +43,18 @@ class UserResumeCertificationResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('certification_name'),
+                Tables\Columns\TextColumn::make('receive_date'),
+                Tables\Columns\TextColumn::make('description')->words(10),
+                Tables\Columns\TextColumn::make('link')->words(10),
+                Tables\Columns\TextColumn::make('user.name')->label('For User'),
             ])
             ->filters([
                 //
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

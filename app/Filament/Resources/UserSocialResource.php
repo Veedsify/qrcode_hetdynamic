@@ -6,6 +6,10 @@ use App\Filament\Resources\UserSocialResource\Pages;
 use App\Filament\Resources\UserSocialResource\RelationManagers;
 use App\Models\UserSocial;
 use Filament\Forms;
+use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Section;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -27,7 +31,11 @@ class UserSocialResource extends Resource
     {
         return $form
             ->schema([
-                //
+                Section::make("Social Links")->schema([
+                    Select::make('user_id')->relationship('user', 'name')->native(false),
+                    FileUpload::make('icon'),
+                    TextInput::make('link'),
+                ])
             ]);
     }
 
@@ -35,13 +43,16 @@ class UserSocialResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\ImageColumn::make('icon')->label('Icon'),
+                Tables\Columns\TextColumn::make('link'),
+                Tables\Columns\TextColumn::make('user.name')->label('For User'),
             ])
             ->filters([
                 //
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

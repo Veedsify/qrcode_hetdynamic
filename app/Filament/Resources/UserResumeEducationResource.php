@@ -6,6 +6,9 @@ use App\Filament\Resources\UserResumeEducationResource\Pages;
 use App\Filament\Resources\UserResumeEducationResource\RelationManagers;
 use App\Models\UserResumeEducation;
 use Filament\Forms;
+use Filament\Forms\Components\Section;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -26,7 +29,13 @@ class UserResumeEducationResource extends Resource
     {
         return $form
             ->schema([
-                //
+                Section::make('Education Details')->schema([
+                    Select::make('user_id')->relationship('user', 'name')->native(false),
+                    TextInput::make('school'),
+                    TextInput::make('degree'),
+                    TextInput::make('education_start_date'),
+                    TextInput::make('education_end_date'),
+                ])
             ]);
     }
 
@@ -34,13 +43,18 @@ class UserResumeEducationResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('school'),
+                Tables\Columns\TextColumn::make('degree'),
+                Tables\Columns\TextColumn::make('education_start_date'),
+                Tables\Columns\TextColumn::make('education_end_date'),
+                Tables\Columns\TextColumn::make('user.name')->label('For User'),
             ])
             ->filters([
                 //
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

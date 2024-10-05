@@ -6,6 +6,10 @@ use App\Filament\Resources\UserResumeExperienceResource\Pages;
 use App\Filament\Resources\UserResumeExperienceResource\RelationManagers;
 use App\Models\UserResumeExperience;
 use Filament\Forms;
+use Filament\Forms\Components\Section;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\TextArea;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -27,7 +31,14 @@ class UserResumeExperienceResource extends Resource
     {
         return $form
             ->schema([
-                //
+                Section::make('Experience Details')->schema([
+                    Select::make('user_id')->relationship('user', 'name')->native(false),
+                    TextInput::make('company_name'),
+                    TextInput::make('job_title'),
+                    TextInput::make('start_date'),
+                    TextInput::make('end_date'),
+                    TextArea::make('description'),
+                ])
             ]);
     }
 

@@ -15,4 +15,9 @@ class UserResume extends Model
         'resume_content',
         'resume_file_cv',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

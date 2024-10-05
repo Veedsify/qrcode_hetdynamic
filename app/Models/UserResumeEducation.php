@@ -17,4 +17,9 @@ class UserResumeEducation extends Model
         'education_start_date',
         'education_end_date',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

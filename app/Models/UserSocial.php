@@ -15,4 +15,9 @@ class UserSocial extends Model
         'icon',
         'link',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
