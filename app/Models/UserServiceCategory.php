@@ -19,4 +19,9 @@ class UserServiceCategory extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function user_services()
+    {
+        return $this->hasMany(UserService::class);
+    }
 }

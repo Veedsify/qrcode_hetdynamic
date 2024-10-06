@@ -45,13 +45,18 @@ class UserResumeServiceResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\ImageColumn::make('icon')->label('Icon'),
+                Tables\Columns\TextColumn::make('title'),
+                Tables\Columns\TextColumn::make('description')->words(10),
+                Tables\Columns\TextColumn::make('link'),
+                Tables\Columns\TextColumn::make('user.name')->label('For User'),
             ])
             ->filters([
                 //
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

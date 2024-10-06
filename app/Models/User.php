@@ -49,13 +49,6 @@ class User extends Authenticatable
         ];
     }
 
-
-    public function userAbout()
-    {
-        return $this->hasOne(UserAbout::class);
-    }
-
-
     protected static function boot()
     {
         parent::boot();
@@ -66,6 +59,11 @@ class User extends Authenticatable
     }
 
     // RelationShips
+    public function userAbout()
+    {
+        return $this->hasMany(UserAbout::class);
+    }
+
 
     public function userServices()
     {
@@ -109,7 +107,7 @@ class User extends Authenticatable
 
     public function userResume()
     {
-        return $this->hasMany(UserResume::class);
+        return $this->hasOne(UserResume::class);
     }
 
     public function userSocial()
