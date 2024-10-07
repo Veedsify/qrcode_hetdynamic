@@ -13,6 +13,6 @@ Route::get('/qr/{link}', function ($link) {
    return QrCode::size(300)->generate($link);
 });
 
-// Route::get('/{username}', [IndexController::class, 'showProfile'])->name('showProfile');
+Route::get('/{username}', [IndexController::class, 'showProfile'])->name('showProfile');
 
 
