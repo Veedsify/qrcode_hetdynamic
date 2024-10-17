@@ -50,7 +50,7 @@ body {
 }
 
 a {
-     color: #ff8059;
+     color: #5977ff;
      text-decoration: none;
      cursor: pointer;
      outline: 0;
@@ -59,15 +59,15 @@ a {
 }
 
 a:link {
-     color: #ff8059
+     color: #5977ff
 }
 
 a:active {
-     color: #ff8059
+     color: #5977ff
 }
 
 a:visited {
-     color: #ff8059
+     color: #5977ff
 }
 
 a:hover {
@@ -265,7 +265,7 @@ a.lnk {
      display: inline-block;
      vertical-align: top;
      font-size: 18px;
-     color: #ff8059;
+     color: #5977ff;
      font-weight: 700;
      text-decoration: none;
      transition: all .7s cubic-bezier(.3, 0, .3, 1);
@@ -290,7 +290,7 @@ input[type=submit] {
      line-height: 58px;
      text-align: center;
      text-decoration: none;
-     border: 1px solid #ff8059;
+     border: 1px solid #5977ff;
      outline: 0 !important;
      box-shadow: none !important;
      cursor: pointer;
@@ -303,7 +303,7 @@ input[type=submit] {
 button,
 input[type=submit] {
      color: #fff;
-     background: #ff8059;
+     background: #5977ff;
      outline: 0;
      cursor: pointer
 }
@@ -319,7 +319,7 @@ button:before {
      top: -50%;
      width: 120%;
      height: 120%;
-     background: #ff8059;
+     background: #5977ff;
      transition: all .7s cubic-bezier(.3, 0, .3, 1);
      -webkit-transition: all .7s cubic-bezier(.3, 0, .3, 1);
      transform: translate3d(0, -100%, 0) skew(-10deg, -10deg);
@@ -835,7 +835,7 @@ hr {
      display: inline-block;
      width: 15px;
      height: 15px;
-     background: #ff8059;
+     background: #5977ff;
      border-radius: 15px;
      -webkit-animation: spinner .75s cubic-bezier(.17, .37, .43, .67) infinite;
      animation: spinner .75s cubic-bezier(.17, .37, .43, .67) infinite
@@ -859,7 +859,7 @@ hr {
      bottom: 0;
      width: 100%;
      height: 2px;
-     background: #ff8059;
+     background: #5977ff;
      border-radius: 0;
      -webkit-animation: spinnerline 1s cubic-bezier(.17, .37, .43, .67) infinite;
      animation: spinnerline 1s cubic-bezier(.17, .37, .43, .67) infinite
@@ -1359,7 +1359,7 @@ button.mfp-close:before {
 }
 
 body.light-skin .header.sticky .navbar.default:before {
-     background: #ebe7e0
+     background: #e0ebe3
 }
 
 .header .navbar:after {
@@ -1625,7 +1625,7 @@ body.light-skin .header.sticky .navbar.default:before {
 
 .menu-full ul li a:hover .char,
 .menu-full ul li a:hover .word {
-     color: #ff8059
+     color: #5977ff
 }
 
 .menu-full ul li ul {
@@ -1719,15 +1719,15 @@ body.light-skin .header.sticky .navbar.default:before {
 
 .menu-full ul li ul li a:hover .char,
 .menu-full ul li ul li a:hover .word {
-     color: #ff8059
+     color: #5977ff
 }
 
 .menu-full ul li ul li.active>a {
-     color: #ff8059
+     color: #5977ff
 }
 
 .menu-full ul li.active>a {
-     color: #ff8059
+     color: #5977ff
 }
 
 .menu-full ul li.opened>ul {
@@ -1780,7 +1780,7 @@ body.light-skin .header.sticky .navbar.default:before {
 }
 
 .menu-social-links a:hover i {
-     color: #ff8059
+     color: #5977ff
 }
 
 @-webkit-keyframes close-menu-popup {
@@ -1910,7 +1910,7 @@ body.light-skin .header.sticky .navbar.default:before {
 
 .footer .copyright-text a:hover,
 .footer .footer-heading a:hover {
-     color: #ff8059
+     color: #5977ff
 }
 
 .social-links a {
@@ -1927,7 +1927,7 @@ body.light-skin .header.sticky .navbar.default:before {
 }
 
 .social-links a:hover {
-     color: #ff8059
+     color: #5977ff
 }
 
 .section {
@@ -1995,7 +1995,7 @@ body.light-skin .header.sticky .navbar.default:before {
 
 .h-titles .h-subtitle.red,
 .m-titles .m-subtitle.red {
-     color: #ff8059
+     color: #5977ff
 }
 
 .single .m-titles,
@@ -2237,12 +2237,13 @@ body.light-skin .header.sticky .navbar.default:before {
      margin-bottom: 20px;
      font-size: 34px;
      line-height: 1;
-     color: #ff8059
+     color: #5977ff
 }
 
 .numbers-item .num {
      font-size: 40px;
-     font-weight: 700
+     font-weight: 700;
+     text-overflow: ellipsis;
 }
 
 .contacts-items .numbers-item .num {
@@ -2268,9 +2269,9 @@ body.light-skin .header.sticky .navbar.default:before {
      display: inline-block;
      vertical-align: top;
      width: 30%;
-     font-size: 24px;
-     line-height: 20px;
-     font-weight: 700
+     font-size: 22px;
+     line-height: 1.7;
+     font-weight: 500
 }
 
 .skills-item .dots {
@@ -2310,7 +2311,7 @@ body.light-skin .header.sticky .navbar.default:before {
      height: 26px;
      line-height: 26px;
      text-align: right;
-     background: #ff8059;
+     background: #5977ff;
      border-radius: 28px;
      -webkit-border-radius: 28px
 }
@@ -2325,7 +2326,7 @@ body.light-skin .header.sticky .navbar.default:before {
 .skills-item .dots.dots-7 .dot:nth-child(-n+1),
 .skills-item .dots.dots-8 .dot:nth-child(-n+1),
 .skills-item .dots.dots-9 .dot:nth-child(-n+1) {
-     background: #ff8059
+     background: #5977ff
 }
 
 .skills-item .dots.dots-11 .dot:nth-child(-n+2),
@@ -2338,7 +2339,7 @@ body.light-skin .header.sticky .navbar.default:before {
 .skills-item .dots.dots-18 .dot:nth-child(-n+2),
 .skills-item .dots.dots-19 .dot:nth-child(-n+2),
 .skills-item .dots.dots-20 .dot:nth-child(-n+2) {
-     background: #ff8059
+     background: #5977ff
 }
 
 .skills-item .dots.dots-21 .dot:nth-child(-n+3),
@@ -2351,7 +2352,7 @@ body.light-skin .header.sticky .navbar.default:before {
 .skills-item .dots.dots-28 .dot:nth-child(-n+3),
 .skills-item .dots.dots-29 .dot:nth-child(-n+3),
 .skills-item .dots.dots-30 .dot:nth-child(-n+3) {
-     background: #ff8059
+     background: #5977ff
 }
 
 .skills-item .dots.dots-31 .dot:nth-child(-n+4),
@@ -2364,7 +2365,7 @@ body.light-skin .header.sticky .navbar.default:before {
 .skills-item .dots.dots-38 .dot:nth-child(-n+4),
 .skills-item .dots.dots-39 .dot:nth-child(-n+4),
 .skills-item .dots.dots-40 .dot:nth-child(-n+4) {
-     background: #ff8059
+     background: #5977ff
 }
 
 .skills-item .dots.dots-41 .dot:nth-child(-n+5),
@@ -2377,7 +2378,7 @@ body.light-skin .header.sticky .navbar.default:before {
 .skills-item .dots.dots-48 .dot:nth-child(-n+5),
 .skills-item .dots.dots-49 .dot:nth-child(-n+5),
 .skills-item .dots.dots-50 .dot:nth-child(-n+5) {
-     background: #ff8059
+     background: #5977ff
 }
 
 .skills-item .dots.dots-51 .dot:nth-child(-n+6),
@@ -2390,7 +2391,7 @@ body.light-skin .header.sticky .navbar.default:before {
 .skills-item .dots.dots-58 .dot:nth-child(-n+6),
 .skills-item .dots.dots-59 .dot:nth-child(-n+6),
 .skills-item .dots.dots-60 .dot:nth-child(-n+6) {
-     background: #ff8059
+     background: #5977ff
 }
 
 .skills-item .dots.dots-61 .dot:nth-child(-n+7),
@@ -2403,7 +2404,7 @@ body.light-skin .header.sticky .navbar.default:before {
 .skills-item .dots.dots-68 .dot:nth-child(-n+7),
 .skills-item .dots.dots-69 .dot:nth-child(-n+7),
 .skills-item .dots.dots-70 .dot:nth-child(-n+7) {
-     background: #ff8059
+     background: #5977ff
 }
 
 .skills-item .dots.dots-71 .dot:nth-child(-n+8),
@@ -2416,7 +2417,7 @@ body.light-skin .header.sticky .navbar.default:before {
 .skills-item .dots.dots-78 .dot:nth-child(-n+8),
 .skills-item .dots.dots-79 .dot:nth-child(-n+8),
 .skills-item .dots.dots-80 .dot:nth-child(-n+8) {
-     background: #ff8059
+     background: #5977ff
 }
 
 .skills-item .dots.dots-81 .dot:nth-child(-n+9),
@@ -2429,7 +2430,7 @@ body.light-skin .header.sticky .navbar.default:before {
 .skills-item .dots.dots-88 .dot:nth-child(-n+9),
 .skills-item .dots.dots-89 .dot:nth-child(-n+9),
 .skills-item .dots.dots-90 .dot:nth-child(-n+9) {
-     background: #ff8059
+     background: #5977ff
 }
 
 .skills-item .dots.dots-100 .dot:nth-child(-n+10),
@@ -2442,7 +2443,7 @@ body.light-skin .header.sticky .navbar.default:before {
 .skills-item .dots.dots-97 .dot:nth-child(-n+10),
 .skills-item .dots.dots-98 .dot:nth-child(-n+10),
 .skills-item .dots.dots-99 .dot:nth-child(-n+10) {
-     background: #ff8059
+     background: #5977ff
 }
 
 .history-left {
@@ -2509,7 +2510,7 @@ body.light-skin .header.sticky .navbar.default:before {
      width: 80px;
      height: 80px;
      line-height: 80px;
-     color: #ff8059;
+     color: #5977ff;
      background: #181e27;
      text-align: center;
      border-radius: 6px;
@@ -2561,7 +2562,7 @@ body.light-skin .header.sticky .navbar.default:before {
      width: 0;
      max-width: 60%;
      height: 2px;
-     background: #ff8059;
+     background: #5977ff;
      transition: all .3s cubic-bezier(.3, 0, .3, 1);
      -moz-transition: all .3s cubic-bezier(.3, 0, .3, 1);
      -webkit-transition: all .3s cubic-bezier(.3, 0, .3, 1);
@@ -3293,7 +3294,7 @@ body.light-skin .header.sticky .navbar.default:before {
 }
 
 .m-page-navigation a:hover .h-title {
-     color: #ff8059
+     color: #5977ff
 }
 
 .m-page-navigation .nav-arrow {
@@ -3550,7 +3551,7 @@ a.page-numbers.prev .icon-arrow:after {
 .post-page-numbers.current,
 a.page-numbers.current,
 a.post-page-numbers.current {
-     background: #ff8059
+     background: #5977ff
 }
 
 .col__sedebar {
@@ -3652,7 +3653,7 @@ input.search-submit {
      bottom: -20px;
      width: 30px;
      height: 4px;
-     background: #ff8059;
+     background: #5977ff;
      -webkit-transition: opacity .3s linear, color .3s linear, -webkit-transform .3s cubic-bezier(.3, 0, .3, 1);
      transition: opacity .3s linear, color .3s linear, -webkit-transform .3s cubic-bezier(.3, 0, .3, 1);
      -o-transition: transform .3s cubic-bezier(.3, 0, .3, 1), opacity .3s linear, color .3s linear;
@@ -3685,7 +3686,7 @@ input.search-submit {
 }
 
 .content-sidebar ul li a:hover {
-     color: #ff8059;
+     color: #5977ff;
      text-decoration: underline
 }
 
@@ -3759,7 +3760,7 @@ input.search-submit {
      top: 12px;
      width: 5px;
      height: 1px;
-     background: #ff8059
+     background: #5977ff
 }
 
 .rssSummary {
@@ -3788,7 +3789,7 @@ input.search-submit {
      color: #fff;
      text-transform: none;
      text-decoration: none;
-     border: 1px solid #ff8059
+     border: 1px solid #5977ff
 }
 
 .content-sidebar ul.menu {
@@ -4122,7 +4123,7 @@ h5.comment-box__details {
 }
 
 .error-page__num {
-     color: #ff8059;
+     color: #5977ff;
      font-size: 220px;
      display: block;
      height: auto;
@@ -5170,7 +5171,7 @@ body.light-skin :-ms-input-placeholder {
 }
 
 body.light-skin {
-     background: #f7f5f2;
+     background: #f2f7f3;
      color: #1c2528
 }
 
@@ -5260,7 +5261,7 @@ body.light-skin .breadcrumbs a {
 }
 
 body.light-skin .preloader:before {
-     background: #ebe7e0
+     background: #e0ebe3
 }
 
 body.light-skin .preloader .spinner {
@@ -5286,12 +5287,12 @@ body.light-skin .cursor.cursor-zoom {
 
 @media screen and (max-width:1200px) {
      body.light-skin .header.sticky {
-          background: #ebe7e0
+          background: #e0ebe3
      }
 }
 
 body.light-skin .header.default-sticky {
-     background: #ebe7e0
+     background: #e0ebe3
 }
 
 body.light-skin .menu-btn span:after,
@@ -5300,7 +5301,7 @@ body.light-skin .menu-btn span:before {
 }
 
 body.light-skin .menu-full-overlay:before {
-     background: #ebe7e0
+     background: #e0ebe3
 }
 
 body.light-skin .m-testimonials .swiper-button-next svg path,
@@ -5345,16 +5346,16 @@ body.light-skin .social-links a {
 }
 
 body.light-skin .section.section-inner {
-     background: #ebe7e0
+     background: #e0ebe3
 }
 
 body.light-skin .m-page-navigation,
 body.light-skin .section.section-inner.m-page-navigation {
-     background: #f7f5f2
+     background: #f2f7f3
 }
 
 body.light-skin .section-bg {
-     background: #ebe7e0
+     background: #e0ebe3
 }
 
 body.light-skin .m-titles .m-category {
@@ -5372,7 +5373,7 @@ body.light-skin .m-titles .m-subtitle {
 }
 
 body.light-skin .hero-started:before {
-     background: #ebe7e0
+     background: #e0ebe3
 }
 
 body.light-skin .hero-started .title {
@@ -5401,7 +5402,7 @@ body.light-skin .numbers-item .title {
 }
 
 body.light-skin .skills-item .dots .dot {
-     background: #ebe7e0
+     background: #e0ebe3
 }
 
 body.light-skin .history-item .date,
@@ -5414,7 +5415,7 @@ body.light-skin .history-item .text {
 }
 
 body.light-skin .services-item .icon {
-     background: #ebe7e0
+     background: #e0ebe3
 }
 
 body.light-skin .services-item .title {
@@ -5435,12 +5436,12 @@ body.light-skin .filter-links a.active {
 
 body.light-skin .works-item .image:after,
 body.light-skin .works-item .image:before {
-     background: #ebe7e0
+     background: #e0ebe3
 }
 
 body.light-skin .works-item .image .img:after,
 body.light-skin .works-item .image .img:before {
-     background: #ebe7e0
+     background: #e0ebe3
 }
 
 body.light-skin .works-items.works-list-items .works-item .desc .category {
@@ -5460,7 +5461,7 @@ body.light-skin .works-items.works-masonry-items .works-item .desc .name {
 }
 
 body.light-skin .pricing-item {
-     background: #ebe7e0
+     background: #e0ebe3
 }
 
 body.light-skin .pricing-item .subtitle {
@@ -5472,11 +5473,11 @@ body.light-skin .testimonials-item .info .author {
 }
 
 body.light-skin .blog-items .archive-item .image:before {
-     background: #ebe7e0
+     background: #e0ebe3
 }
 
 body.light-skin .blog-items .archive-item .image:after {
-     background: #ebe7e0
+     background: #e0ebe3
 }
 
 body.light-skin .archive-item .desc .category,
@@ -5501,11 +5502,11 @@ body.light-skin .m-details .details-label strong {
 }
 
 body.light-skin .m-video-large .video .play {
-     background-color: #ebe7e0
+     background-color: #e0ebe3
 }
 
 body.light-skin .m-page-navigation {
-     border-bottom-color: #ebe7e0
+     border-bottom-color: #e0ebe3
 }
 
 body.light-skin .m-page-navigation .nav-arrow {
@@ -5551,7 +5552,7 @@ body.light-skin .page-numbers.current,
 body.light-skin .post-page-numbers.current,
 body.light-skin a.page-numbers.current,
 body.light-skin a.post-page-numbers.current {
-     background: #ff8059;
+     background: #5977ff;
      color: #fff
 }
 
@@ -5606,7 +5607,7 @@ body.light-skin .content-sidebar ul li cite {
 body.light-skin .col__sedebar .tagcloud a,
 body.light-skin .tags-links a {
      color: #1c2528;
-     border: 1px solid #ff8059
+     border: 1px solid #5977ff
 }
 
 body.light-skin .comment-box__details,
@@ -5632,7 +5633,7 @@ body.light-skin .share-post .share-btn {
 }
 
 body.light-skin .post-password-form label input {
-     border-color: #ff8059
+     border-color: #5977ff
 }
 
 body.light-skin .h-titles a .char,
@@ -5676,5 +5677,5 @@ body.light-skin input.search-submit {
 }
 
 body.light-skin.single-portfolio .m-titles:before {
-     background: #f7f5f2
+     background: #f2f7f3
 }

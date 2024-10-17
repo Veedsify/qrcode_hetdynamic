@@ -2,7 +2,9 @@
 <html lang="en-US">
 
 <head>
-    <title>OBER - One Page Resume HTML Template</title>
+    <title>
+        {{ $user->userData->fullname }} - {{ $user->userData->profession }}
+    </title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -36,6 +38,14 @@
         gtag('js', new Date());
         gtag('config', 'UA-125314689-11');
     </script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script>
+        function onSubmit(token) {
+            document.getElementById("cform").action = '{{ route('contact.sent', [$user->id]) }}';
+            document.getElementById("cform").submit();
+        }
+    </script>
 </head>
 
 <body class="home page light-skin">
@@ -45,7 +55,8 @@
             <div class="centrize full-width">
                 <div class="vertical-center">
                     <div class="spinner-logo">
-                        <img src="assets/images/ober_logo.png" alt="" />
+                        {{-- <img src="assets/images/ober_logo.png" alt="" /> --}}
+                        <h5>{{ $user->userData->fullname }}</h5>
                         <div class="spinner-dot"></div>
                         <div class="spinner spinner-line"></div>
                     </div>
@@ -59,13 +70,35 @@
                     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
                         <!-- logo -->
                         <div class="logo">
-                            <a href="index.html">
-                                <img src="assets/images/ober_logo.png" alt="" />
+                            <a href="{{ url('/' . $user->username) }}">
+                                <h5>{{ $user->userData->fullname }}</h5>
                             </a>
                         </div>
                     </div>
                     <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 align-right">
                         <!-- switcher btn -->
+                        <a class="px-3 mt-2" href="{{ route('qr', [$user->id]) }}">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-qrcode"
+                                width="34" height="34" viewBox="0 0 24 24" stroke-width="1" stroke="#00d19d"
+                                fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path
+                                    d="M4 4m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
+                                <path d="M7 17l0 .01" />
+                                <path
+                                    d="M14 4m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
+                                <path d="M7 7l0 .01" />
+                                <path
+                                    d="M4 14m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" />
+                                <path d="M17 7l0 .01" />
+                                <path d="M14 14l3 0" />
+                                <path d="M20 14l0 .01" />
+                                <path d="M14 14l0 3" />
+                                <path d="M14 20l3 0" />
+                                <path d="M17 17l3 0" />
+                                <path d="M20 17l0 3" />
+                            </svg>
+                        </a>
                         <a href="#" class="switcher-btn">
                             <span class="sw-before">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="22.22" height="22.313"
@@ -100,45 +133,15 @@
                                     <ul class="menu-full">
                                         <li class="menu-item">
                                             <a class="splitting-text-anim-2" data-splitting="chars"
-                                                href="/html/ober/#about-section">About</a>
+                                                href="#about-section">About</a>
                                         </li>
                                         <li class="menu-item">
                                             <a class="splitting-text-anim-2" data-splitting="chars"
-                                                href="/html/ober/#resume-section">Resume</a>
+                                                href="#resume-section">Resume</a>
                                         </li>
                                         <li class="menu-item">
                                             <a class="splitting-text-anim-2" data-splitting="chars"
-                                                href="/html/ober/#works-section">Works</a>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a class="splitting-text-anim-2" data-splitting="chars"
-                                                href="/html/ober/#pricing-section">Pricing</a>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a class="splitting-text-anim-2" data-splitting="chars"
-                                                href="/html/ober/#blog-section">Blog</a>
-                                        </li>
-                                        <li class="menu-item">
-                                            <a class="splitting-text-anim-2" data-splitting="chars"
-                                                href="/html/ober/#contact-section">Contact</a>
-                                        </li>
-                                        <li class="menu-item menu-item-has-children has-children">
-                                            <a class="splitting-text-anim-2" data-splitting="chars">Pages</a>
-                                            <ul class="sub-menu">
-                                                <li class="menu-item"><a class="splitting-text-anim-1"
-                                                        data-splitting="chars" href="works.html">Works (grid)</a></li>
-                                                <li class="menu-item"><a class="splitting-text-anim-1"
-                                                        data-splitting="chars" href="works-list.html">Works (list)</a>
-                                                </li>
-                                                <li class="menu-item"><a class="splitting-text-anim-1"
-                                                        data-splitting="chars" href="work-single.html">Work Single
-                                                        Page</a></li>
-                                                <li class="menu-item"><a class="splitting-text-anim-1"
-                                                        data-splitting="chars" href="blog.html">Blog Posts</a></li>
-                                                <li class="menu-item"><a class="splitting-text-anim-1"
-                                                        data-splitting="chars" href="blog-single.html">Blog Single
-                                                        Post</a></li>
-                                            </ul>
+                                                href="#contact-section">Contact</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -148,15 +151,11 @@
                 </div>
                 <!-- social -->
                 <div class="menu-social-links">
-                    <a href="http://dribbble.com" target="blank" class="scrolla-element-anim-1" title="dribbble">
-                        <i class="fab fa-dribbble"></i>
-                    </a>
-                    <a href="http://twitter.com" target="blank" class="scrolla-element-anim-1" title="twitter">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href="http://behance.com" target="blank" class="scrolla-element-anim-1" title="behance">
-                        <i class="fab fa-behance"></i>
-                    </a>
+                    @foreach ($user->userSocial as $social)
+                        <a target="_blank" rel="nofollow" href="{{ $social->link }}">
+                            <img src="{{ asset('storage/' . $social->icon) }}" width="25" alt="Twitter" />
+                        </a>
+                    @endforeach
                 </div>
             </div>
         </header>
@@ -168,7 +167,8 @@
                     <!-- Hero Started -->
                     <div class="hero-started">
                         <div class="slide scrolla-element-anim-1 scroll-animate" data-animate="active">
-                            <img src="{{ asset('storage/' . $user->userData->profile_picture) }}" alt="" />
+                            <img src="{{ asset('storage/' . optional($user->userData)->profile_picture) }}"
+                                alt="" />
                             <span class="circle circle-1">
                                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                                     width="749px" height="375px">
@@ -209,27 +209,26 @@
                             <div class="titles">
                                 <div class="subtitle splitting-text-anim-2 scroll-animate" data-splitting="chars"
                                     data-animate="active">
-                                    {{ $user->userData->profession }}
+                                    {{ optional($user->userData)->profession }}
                                 </div>
                                 <h2 class="title splitting-text-anim-1 scroll-animate" data-splitting="chars"
                                     data-animate="active">
-                                    {{ $user->userData->fullname }}
+                                    {{ optional($user->userData)->fullname }}
                                 </h2>
                             </div>
                             <div class="description scrolla-element-anim-1 scroll-animate" data-animate="active">
                                 <p>
-                                    {{ $user->userData->introduction }}
+                                    {{ optional($user->userData)->introduction }}
                                 </p>
                                 <div class="social-links">
-                                    <a target="_blank" rel="nofollow" href="#">
-                                        <i aria-hidden="true" class="fab fa-twitter"></i>
-                                    </a>
-                                    <a target="_blank" rel="nofollow" href="#">
-                                        <i aria-hidden="true" class="fab fa-dribbble"></i>
-                                    </a>
-                                    <a target="_blank" rel="nofollow" href="#">
-                                        <i aria-hidden="true" class="fab fa-behance"></i>
-                                    </a>
+                                    @foreach ($user->userSocial as $social)
+                                        <a target="_blank" rel="nofollow" href="{{ $social->link }}">
+                                            <img 
+                                            style="@media prefers-color-scheme: dark {filter: invert(1);} "
+                                            src="{{ asset('storage/' . $social->icon) }}" width="25"
+                                                alt="Twitter" />
+                                        </a>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
@@ -237,14 +236,14 @@
                             <ul>
                                 <li class="scrolla-element-anim-1 scroll-animate" data-animate="active">
                                     Born in <strong>
-                                        {{ $user->userData->born_in }}
+                                        {{ optional($user->userData)->born_in }}
                                     </strong>
                                 </li>
                                 <li class="scrolla-element-anim-1 scroll-animate" data-animate="active">
-                                    Experience <strong>{{ $user->userData->experience }}</strong>
+                                    Experience <strong>{{ optional($user->userData)->experience }}</strong>
                                 </li>
                                 <li class="scrolla-element-anim-1 scroll-animate" data-animate="active">
-                                    Date of Birth <strong>{{ $user->userData->date_of_birth }}</strong>
+                                    Date of Birth <strong>{{ optional($user->userData)->date_of_birth }}</strong>
                                 </li>
                             </ul>
                         </div>
@@ -285,13 +284,9 @@
                             <!-- Section Profile -->
                             <div class="profile-box">
                                 <div class="text scrolla-element-anim-1 scroll-animate" data-animate="active">
-                                    {!! $user->userData->about_me !!}
+                                    {!! optional($user->userData)->about_me !!}
                                     <a href="#contact-section" class="btn scrolla-element-anim-1 scroll-animate"
                                         data-animate="active">Contact Me</a>
-                                    <div class="signature scrolla-element-anim-1 scroll-animate"
-                                        data-animate="active">
-                                        <img src="assets/images/signature.png" alt="" />
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -314,7 +309,7 @@
                             <!-- Description -->
                             <div class="text scrolla-element-anim-1 scroll-animate" data-animate="active">
                                 <p>
-                                    {!! $user->userResume->resume_content !!}
+                                    {!! optional($user->userResume)->resume_content !!}
                                 </p>
                             </div>
                             <!-- Skills -->
@@ -366,9 +361,11 @@
                                                     {{ $services->description }}
                                                 </p>
                                             </div>
-                                            <a href="{{ $services->link }}" target="_blank" class="lnk">
-                                                Learn More
-                                            </a>
+                                            @if ($services->link)
+                                                <a href="{{ $services->link }}" target="_blank" class="lnk">
+                                                    Learn More
+                                                </a>
+                                            @endif
                                         </div>
                                     </div>
                                 @endforeach
@@ -381,8 +378,10 @@
                                     @foreach ($user->userResumeEducations as $education)
                                         <div class="history-item scrolla-element-anim-1 scroll-animate"
                                             data-animate="active">
-                                            <div class="date">{{ $education->education_start_date }} -
-                                                {{ $education->education_end_date }}</div>
+                                            @if ($education->education_end_date)
+                                                <div class="date">{{ $education->education_start_date }} -
+                                                    {{ $education->education_end_date }}</div>
+                                            @endif
                                             <div class="name">{{ $education->degree }}</div>
                                             <div class="subname">{{ $education->school }}</div>
                                         </div>
@@ -407,37 +406,40 @@
                                     @endforeach
                                 </div>
                             </div>
-                            <div class="history-right">
-                                <div class="history-items">
-                                    <div class="p-title scrolla-element-anim-1 scroll-animate" data-animate="active">
-                                        EXPERIENCE</div>
-                                    @foreach ($user->userResumeExperiences as $experience)
-                                        <div class="history-item scrolla-element-anim-1 scroll-animate"
+                            @if ($user->userResumeExperiences->count() > 0)
+                                <div class="history-right">
+                                    <div class="history-items">
+                                        <div class="p-title scrolla-element-anim-1 scroll-animate"
                                             data-animate="active">
-                                            <div class="date">{{ $experience->start_date }} -
-                                                {{ $experience->end_date }}</div>
-                                            <div class="name">{{ $experience->company_name }}</div>
-                                            <div class="subname">{{ $experience->job_title }}</div>
-                                            <div class="text">
-                                                <p>
-                                                    {!! $experience->description !!}
-                                                </p>
+                                            EXPERIENCE</div>
+                                        @foreach ($user->userResumeExperiences as $experience)
+                                            <div class="history-item scrolla-element-anim-1 scroll-animate"
+                                                data-animate="active">
+                                                <div class="date">{{ $experience->start_date }} -
+                                                    {{ $experience->end_date }}</div>
+                                                <div class="name">{{ $experience->company_name }}</div>
+                                                <div class="subname">{{ $experience->job_title }}</div>
+                                                <div class="text">
+                                                    <p>
+                                                        {!! $experience->description !!}
+                                                    </p>
+                                                </div>
                                             </div>
-                                        </div>
-                                    @endforeach
+                                        @endforeach
+                                    </div>
                                 </div>
-                            </div>
+                            @endif
                             <div class="clear"></div>
                             <!-- Button CV -->
-                            <a target="_blank" download="{{ $user->userData->fullname }}-Resume.pdf"
-                                href="{{ asset('storage/' . $user->userResume->resume_file_cv) }}"
+                            <a target="_blank" download="{{ optional($user->userData)->fullname }}-Resume.pdf"
+                                href="{{ asset('storage/' . optional($user->userResume)->resume_file_cv) }}"
                                 class="btn scrolla-element-anim-1 scroll-animate" data-animate="active">Download
                                 CV</a>
                         </div>
                     </div>
                 </div>
             </section>
-            <section class="section section-bg section-parallax-5" id="works-section">
+            {{-- <section class="section section-bg section-parallax-5" id="works-section">
                 <div class="container">
                     <!-- Section Heading -->
                     <div class="m-titles">
@@ -452,7 +454,7 @@
                         <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 vertical-line">
                             <!-- Description -->
                             <div class="text scrolla-element-anim-1 scroll-animate" data-animate="active">
-                                <p>A Collection of my works.</p>
+                                <p>Some of the services I offer to my clients. I am always ready to help you with your.</p>
                             </div>
                         </div>
                     </div>
@@ -512,8 +514,8 @@
                         </div>
                     </div>
                 </div>
-            </section>
-            <section class="section section-parallax-4">
+            </section> --}}
+            {{-- <section class="section section-parallax-4">
                 <div class="container">
                     <!-- Testimonials -->
                     <div class="m-testimonials">
@@ -644,7 +646,7 @@
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> --}}
             <section class="section section-bg section-parallax-2" id="contact-section">
                 <div class="container">
                     <!-- Section Heading -->
@@ -661,15 +663,15 @@
                                         <i aria-hidden="true" class="fas fa-phone"></i>
                                     </div>
                                     <div class="num">
-                                        {{ $user->userData->phone_number }}
+                                        {{ optional($user->userData)->phone_number }}
                                     </div>
                                 </div>
                                 <div class="numbers-item scrolla-element-anim-1 scroll-animate" data-animate="active">
                                     <div class="icon">
                                         <i aria-hidden="true" class="fas fa-at"></i>
                                     </div>
-                                    <div class="num">
-                                        {{ $user->userData->email }}
+                                    <div class="num" style="text-overflow: clip">
+                                        {{ optional($user->userData)->email }}
                                     </div>
                                 </div>
                                 <div class="numbers-item scrolla-element-anim-1 scroll-animate" data-animate="active">
@@ -677,7 +679,7 @@
                                         <i aria-hidden="true" class="fas fa-location-arrow"></i>
                                     </div>
                                     <div class="num">
-                                        {{ $user->userData->address }}
+                                        {{ optional($user->userData)->address }}
                                     </div>
                                 </div>
                             </div>
@@ -686,6 +688,7 @@
                             <!-- contact form -->
                             <div class="contacts-form scrolla-element-anim-1 scroll-animate" data-animate="active">
                                 <form id="cform" method="post">
+                                    @csrf
                                     <label>
                                         Name
                                         <input type="text" name="name" placeholder="Enter your full name" />
@@ -699,8 +702,9 @@
                                         Message
                                         <textarea name="message" placeholder="Enter your message here"></textarea>
                                     </label>
-                                    <a href="#" class="btn"
-                                        onclick="$('#cform').submit(); return false;">Submit</a>
+                                    <button class="g-recaptcha btn"
+                                        data-sitekey="6LcLYGEqAAAAAI7Rw2SoqwOEAB09xxoyfHON9fjo"
+                                        data-callback="onSubmit">Submit</a>
                                 </form>
                             </div>
                             <div class="alert-success" style="display: none;">
@@ -719,25 +723,23 @@
                         <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 align-left">
                             <!-- social -->
                             <div class="social-links scrolla-element-anim-1 scroll-animate" data-animate="active">
-                                <a target="_blank" rel="nofollow" href="http://twitter.com">
-                                    <i aria-hidden="true" class="fab fa-twitter"></i>
-                                </a>
-                                <a target="_blank" rel="nofollow" href="http://dribble.com">
-                                    <i aria-hidden="true" class="fab fa-dribbble"></i>
-                                </a>
-                                <a target="_blank" rel="nofollow" href="http://behance.com">
-                                    <i aria-hidden="true" class="fab fa-behance"></i>
-                                </a>
+                                @foreach ($user->userSocial as $social)
+                                    <a target="_blank" rel="nofollow" href="{{ $social->link }}">
+                                        <img src="{{ asset('storage/' . $social->icon) }}" width="25"
+                                            alt="Twitter" />
+                                    </a>
+                                @endforeach
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 align-center">
                             <div class="copyright-text scrolla-element-anim-1 scroll-animate" data-animate="active">©
-                                2022 Ober. All Rights Reserved</div>
+                                {{ date('Y') }} Hetdynamic. All Rights Reserved</div>
                         </div>
-                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 align-right">
+                        {{-- <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 align-right">
                             <div class="copyright-text scrolla-element-anim-1 scroll-animate" data-animate="active">
-                                Developed by <strong>beshleyua</strong></div>
-                        </div>
+                                Developed by <a href="https://instagram.com/veedsify" target="_blank"
+                                    class="fw-bold">Veedsify</strong></div>
+                        </div> --}}
                     </div>
                 </div>
             </div>
@@ -761,6 +763,17 @@
     <!-- bslthemes.com buttons assets begin -->
     <link rel="stylesheet" href="https://bslthemes.com/bslthms-advanced-btns/assets/style.css">
     <script src="https://bslthemes.com/bslthms-advanced-btns/assets/script.js"></script>
+
+    @if (session('success'))
+        <script>
+            swal({
+                title: "Success!",
+                text: "{{ session('success') }}",
+                icon: "success",
+                button: "OK",
+            })
+        </script>
+    @endif
     <!-- bslthemes.com buttons assets end -->
 </body>
 

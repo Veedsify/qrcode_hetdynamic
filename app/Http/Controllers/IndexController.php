@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ContactMail;
+use App\Models\Contact;
 use App\Models\User;
+use App\Models\UserContact;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class IndexController extends Controller
 {
@@ -27,7 +31,7 @@ class IndexController extends Controller
         ])->first();
 
         if (!$user) {
-            $user = User::where('id', 2)->with([
+            $user = User::where('username', 'henryezeribe')->with([
                 'userAbout',
                 'userServices',
                 'userContacts',
@@ -51,5 +55,29 @@ class IndexController extends Controller
             'userServiceCategory' => $userServiceCategory
         ]);
         // return view('profile', ['username' => $username]);
+    }
+
+
+    public function contact (Request $request, $userId){
+        $request->validate([
+            'name' => 'required|string',
+            'email' => 'required|email',
+            'message' => 'required|string',
+        ]);
+
+        $contact = new UserContact();
+        $contact->user_id = $userId;
+        $contact->name = $request->name;
+        $contact->email_address = $request->email;
+        $contact->message = $request->message;
+        $contact->save();
+
+        $user = User::find($userId);
+
+        // Mail to admin
+        Mail::to($user->userData->email)->send(new ContactMail($contact));
+
+        return redirect()->back()->with('success', 'Message sent successfully');
+
     }
 }

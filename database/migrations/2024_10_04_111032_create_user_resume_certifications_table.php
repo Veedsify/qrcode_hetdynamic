@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('user_resume_certifications', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->string('certification_name');
-            $table->string('receive_date');
-            $table->text('description');
+            $table->string('certification_name')->nullable();
+            $table->string('receive_date')->nullable();
+            $table->text('description')->nullable();
             $table->string('link')->nullable();
             $table->timestamps();
         });

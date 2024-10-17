@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('password');
             $table->boolean('show_profile')->default(false);
             $table->string('role')->default('user');
-            $table->string('username')->unique();
+            $table->string('username')->unique()->default('user');
             $table->rememberToken();
             $table->timestamps();
         });
