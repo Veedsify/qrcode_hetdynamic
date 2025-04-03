@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: php-apache-app
+    ports:
+      - "80:80"
+    volumes:
+      - .:/var/www/html
+    env_file:
+      - .env
+    networks:
+      - app-network
+
+volumes:
+  # If you want to persist other volumes, define them here
+  # e.g., app-storage:
+
+networks:
+  app-network:
+    driver: bridge
