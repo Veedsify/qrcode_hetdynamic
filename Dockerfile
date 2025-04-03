@@ -7,13 +7,13 @@ RUN apt-get update && \
     zip \
     libgd-dev \
     libexif-dev \
-    pkg-config
+    pkg-config \
+    libicu-dev g++ && \
+    docker-php-ext-configure intl && \
+    docker-php-ext-install intl pdo_mysql zip gd exif
 
 # Enable mod_rewrite
 RUN a2enmod rewrite
-
-# Configure GD properly
-RUN docker-php-ext-install pdo_mysql zip gd exif
 
 # Set the document root
 ENV APACHE_DOCUMENT_ROOT=/var/www/html/public
