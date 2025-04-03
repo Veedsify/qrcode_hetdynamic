@@ -42,19 +42,18 @@
             text-align: center;
         }
 
-        .qrcode {
+       .qrcode {
             display: grid;
             position: relative;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            filter: drop-shadow(1px 1px 3px #e4e4e487);
+            grid-template-columns: repeat(2, 1fr);
             justify-content: center;
             align-items: center;
-            background-color: var(--bg-color);
-            aspect-ratio: 16/10;
-            /* height: 400px; */
-            width: 100% max-width: 600px;
+            filter: drop-shadow(1px 1px 3px rgba(228, 228, 228, 0.53));
+            background-color: #fff; /* Fallback added */
+            aspect-ratio: 16 / 9;
+            width: 100%;
+            max-width: 600px;
             margin-bottom: 20px;
-            background: #fff;
         }
 
         .qrcode::after {
@@ -135,6 +134,16 @@
             height: 100%;
             object-fit: cover;
             object-position: top;
+             aspect-ratio: 1/1;
+        }
+        
+        @media only screen and (max-width: 768px){
+            .qrcode{
+                display: grid;
+                position: relative;
+                grid-template-columns: 1fr;
+                grid-template-rows: 1fr 1fr;
+            }
         }
 
         @media print {
@@ -151,6 +160,8 @@
                 position: absolute;
                 left: 0;
                 top: 0;
+                max-width: 100%;
+            margin-bottom: 20px;
             }
 
             /* Remove default headers and footers */
@@ -221,6 +232,11 @@
                         </svg>
                     </span>
                 </h2>
+                @if($user->id == 3)
+                <p>
+                    LLM, MBA, CRA,IMCM
+                </p>
+                @endif
             </div>
         </div>
         <div class="action_buttons">

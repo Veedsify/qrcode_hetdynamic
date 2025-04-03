@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Route;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 Route::get('/', function () {
-    return redirect('/henryezeribe');
+    return redirect('/henrymartins');
 })->name('home');
 
 Route::get('/qr/{id}', function (Request $request, $id) {

@@ -215,6 +215,9 @@
                                     data-animate="active">
                                     {{ optional($user->userData)->fullname }}
                                 </h2>
+                                @if($user->id == 3)
+                                <h4>LLM, MBA, CRA,IMCM</h4>
+                                @endif
                             </div>
                             <div class="description scrolla-element-anim-1 scroll-animate" data-animate="active">
                                 <p>
@@ -242,9 +245,9 @@
                                 <li class="scrolla-element-anim-1 scroll-animate" data-animate="active">
                                     Experience <strong>{{ optional($user->userData)->experience }}</strong>
                                 </li>
-                                <li class="scrolla-element-anim-1 scroll-animate" data-animate="active">
-                                    Date of Birth <strong>{{ optional($user->userData)->date_of_birth }}</strong>
-                                </li>
+                                <!--<li class="scrolla-element-anim-1 scroll-animate" data-animate="active">-->
+                                <!--    Date of Birth <strong>{{ optional($user->userData)->date_of_birth }}</strong>-->
+                                <!--</li>-->
                             </ul>
                         </div>
                     </div>
@@ -342,8 +345,10 @@
                                 @endforeach
                             </div>
                             <!-- Services -->
+                            @if($user->userResumeServices->count() > 0)
                             <div class="p-title scrolla-element-anim-1 scroll-animate" data-animate="active">SERVICES
                             </div>
+                            @endif
                             <div class="services-items">
                                 @foreach ($user->userResumeServices as $services)
                                     <div class="services-col">
@@ -431,14 +436,98 @@
                             @endif
                             <div class="clear"></div>
                             <!-- Button CV -->
+                            @if($user->userResume->resume_file_cv)
                             <a target="_blank" download="{{ optional($user->userData)->fullname }}-Resume.pdf"
                                 href="{{ asset('storage/' . optional($user->userResume)->resume_file_cv) }}"
                                 class="btn scrolla-element-anim-1 scroll-animate" data-animate="active">Download
                                 CV</a>
+                                @endif
                         </div>
                     </div>
                 </div>
             </section>
+            @if($user->username == "henryezeribe")
+            <section class="section" id="pricing-section">
+  <div class="container">
+
+    <!-- Section Heading -->
+    <div class="m-titles">
+      <h2 class="m-title splitting-text-anim-1 scroll-animate" data-splitting="chars" data-animate="active">
+        Pricing Plans
+      </h2>
+    </div>
+
+    <div class="row row-custom">
+      <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 vertical-line">
+
+        <!-- Description -->
+        <div class="text scrolla-element-anim-1 scroll-animate" data-animate="active">
+          <p>Interested in working with me? Here’s our price list for immigration consultations. Let’s discuss your specific needs!</p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Pricing -->
+    <div class="pricing-items row">
+
+      <div class="pricing-col col-xs-12 col-sm-6 col-md-6 col-lg-4">
+        <div class="pricing-item scrolla-element-anim-1 scroll-animate" data-animate="active">
+          <div class="title">Basic Consultation</div>
+          <div class="subtitle">General immigration advice</div>
+          <div class="price">€100</div>
+          <div class="text">
+            <ul>
+              <li>General immigration advice</li>
+              <li>Visa options</li>
+              <li>Eligibility assessment</li>
+            </ul>
+          </div>
+          <a href="#contact-section" class="btn">Get Started</a>
+        </div>
+      </div>
+
+      <div class="pricing-col col-xs-12 col-sm-6 col-md-6 col-lg-4">
+        <div class="pricing-item scrolla-element-anim-1 scroll-animate" data-animate="active">
+          <div class="title">Comprehensive Consultation</div>
+          <div class="subtitle">In-depth immigration assessment</div>
+          <div class="price">€200</div>
+          <div class="text">
+            <ul>
+              <li>In-depth assessment of goals</li>
+              <li>Long-term strategies</li>
+              <li>Potential legal challenges</li>
+              <li>Personalized options</li>
+            </ul>
+          </div>
+          <a href="#contact-section" class="btn">Get Started</a>
+        </div>
+      </div>
+
+      <div class="pricing-col col-xs-12 col-sm-6 col-md-6 col-lg-4">
+        <div class="pricing-item scrolla-element-anim-1 scroll-animate" data-animate="active">
+          <div class="title">VIP Consultation/Retainer</div>
+          <div class="subtitle">Exclusive and personalized support</div>
+          <div class="price">€400</div>
+          <div class="text">
+            <ul>
+              <li>Ongoing immigration planning</li>
+              <li>Fast-tracked services</li>
+              <li>Exclusive client support</li>
+              <li>Tailored to high-net-worth individuals or businesses</li>
+            </ul>
+          </div>
+          <a href="#contact-section" class="btn">Get Started</a>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+            @endif
             {{-- <section class="section section-bg section-parallax-5" id="works-section">
                 <div class="container">
                     <!-- Section Heading -->

@@ -9,7 +9,7 @@ use Filament\Forms;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\TextArea;
+use Filament\Forms\Components\Textarea;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -37,7 +37,7 @@ class UserResumeExperienceResource extends Resource
                     TextInput::make('job_title'),
                     TextInput::make('start_date'),
                     TextInput::make('end_date'),
-                    TextArea::make('description'),
+                    Textarea::make('description'),
                 ])
             ]);
     }
