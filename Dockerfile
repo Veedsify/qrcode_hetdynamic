@@ -39,5 +39,11 @@ RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cac
 # Set the SERVER_NAME environment variable
 RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
 
+# Link Storage
+RUN php artisan storage:link
+
+# Export Filament assets
+RUN php artisan filament:assets
+
 # Start Apache
 CMD ["apache2-foreground"]
